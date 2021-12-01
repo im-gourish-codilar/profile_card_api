@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import pre from '../files/left.svg';
-import nex from '../files/right.svg';
+import pre from '../Files/left.svg';
+import nex from '../Files/right.svg';
 import '../scss/page.scss'
 
 

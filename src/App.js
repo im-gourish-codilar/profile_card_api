@@ -1,5 +1,5 @@
 import React,{useState}  from 'react';
-import './App.css';
+
 import Pagination from './Components/Pagination/Pagination';
 import Profile from './Components/Profile/Profile';
 
