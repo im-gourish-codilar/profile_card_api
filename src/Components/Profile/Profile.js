@@ -1,26 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import "../scss/app.scss";
+// import '../contentloader/loader'
+import Loader from '../contentloader/loader';
 
 export default function Profile({ state }) {
   console.log(state);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   var x = state;
 
 
-  const getUsers = async () => {
-    const response = await fetch('https://reqres.in/api/users?page=' + x);
-    const data = await response.json();
-    setUser(data.data);
-    // console.log(data);
-    console.log(x);
-
-    // console.log(state);
-
-  }
+  
 
   useEffect(() => {
 
-    getUsers();
+    setTimeout(async() => {
+      const response = await fetch('https://reqres.in/api/users?page=' + x);
+      const data = await response.json();
+      setUser(data.data);
+    }, 1000);
 
   }, [x])
 
@@ -28,7 +25,7 @@ export default function Profile({ state }) {
   return (
     <>
       <div className="cards">
-        {
+        {user &&
           user.map((el) => {
             return (
 
@@ -43,6 +40,7 @@ export default function Profile({ state }) {
             )
           })
         }
+        {!user && [1,2,3,4,5,6].map((n)=> <Loader key={n}/>  )}
       </div>
       
     </>

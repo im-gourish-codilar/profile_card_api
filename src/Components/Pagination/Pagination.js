@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import prev from '../files/left.svg';
-import next from '../files/right.svg';
-import '../scss/app.scss'
+import pre from '../files/left.svg';
+import nex from '../files/right.svg';
+import '../scss/page.scss'
 
-export default function Pagination({ setstate }) {
+
+
+export default function Pagination({ setstate,state }) {
     // state = { pages: [], records: [], currentpage: 1 };
     const [page, setPage] = useState([]);
     //     const [record, setRecord] = useState([]);
@@ -22,106 +24,42 @@ export default function Pagination({ setstate }) {
                 })
             .catch(error => {
                 console.error('Error:', error);
-            }, []);
+            });
 
     })
-    //     const prev = () => {
-    //         if (currentpage === 2) {
-    //             console.log(currentpage);
-    //             // let p = this.state.currentpage - 1;
-    //             let p= setCurrentpage(currentpage-1);
-    //             fetch(`https://reqres.in/api/users?page=${p}`)
-    //                 .then(response => response.json())
-    //                 .then(
-    //                     data => {
-    //                         console.log(data.data);
-    //                         // this.setState({ currentpage: p });
-    //                         setCurrentpage(p);
-
-    //                         console.log(currentpage);
-
-    //                     })
-    //                 .catch(error => {
-    //                     console.error('Error:', error);
-    //                 });
-    //         }
-    //     }
-    //     const next = () => {
-    //         if (currentpage === 1) {
-    //             console.log(currentpage);
-    //             // let c = this.state.currentpage + 1;
-    //             let c= setCurrentpage(currentpage + 1);
-    //             fetch(`https://reqres.in/api/users?page=${c}`)
-    //                 .then(response => response.json())
-    //                 .then(
-    //                     data => {
-    //                         console.log(data.data);
-    //                         // this.setState({ currentpage: c });
-    //                         setCurrentpage(c);
-    //                         console.log(currentpage);
-
-    //                     })
-    //                 .catch(error => {
-    //                     console.error('Error:', error);
-    //                 });
-    //         }
-    //     }
-    // const changeContent = (evt) => {
-    //     fetch(`https://reqres.in/api/users?page=${evt.target.value}`)
-    //         .then(response => response.json())
-    //         .then(
-    //             data => {
-    //                 console.log(data.data);
-    //                 // this.setState({ currentpage: parseInt(evt.target.value) });
-    //                 setCurrentpage(parseInt(evt.target.value));
-    //                 console.log(currentpage);
-
-    //             })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //         });
-    // }
-
-
-    // const [page,setPage] =  useState([]);
-
-    // const getUsers= async() =>{
-    //     const response = await fetch('https://reqres.in/api/users');
-    //     const data = await response.json();
-    //     setPage (data.total_pages);
-    //     // console.log(data);
-
-    // } 
-
-    // useEffect(() => {
-
-    //   getUsers();
-
-    // },[])
+    const prev = () =>{
+        if(state===2)
+        {
+         setstate(parseInt(state)-1); 
+        }
+         
+     }
+     const next = () =>{
+         if(state===1)
+        {
+         setstate(parseInt(state)+1); 
+        }
+     }
 
     const changeContent = (evt) => {
         let val = evt.target.value;
         // console.log(val);
-        setstate(val);
+        setstate(parseInt(val));
 
     }
 
     return (
         <>
             <div className='pages'>
-                <button className='btnl'>
-                    <img src={prev} />
+                <button className='btnl' onClick={prev}>
+                    <img src={pre}  alt='im'/>
                 </button>
-            </div>
-            {/* <button onClick={prev}>prev</button> */}
-            {page.map((id) =>
-                <button className='pagecount' key={id} value={id} onClick={changeContent} >{id}</button>
-                // <button key={id} value={id} >{id}</button>
-            )}
-            {/* <button onClick={next}>next</button>  */}
-            <div className='pages'>
-                <button className='btnl'>
-                    <img src={next} />
+                {page.map((id) =>
+                    <button className='pagecount' key={id} value={id} onClick={changeContent} >{id}</button>
+                    // <button key={id} value={id} >{id}</button>
+                )}
+                <button className='btnr'onClick={next}>
+                    <img src={nex}  alt='im' />
                 </button>
             </div>
         </>

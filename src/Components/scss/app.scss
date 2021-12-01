@@ -27,6 +27,7 @@ body {
     border-radius: 50%;
     border: solid 1px;
     margin-bottom: 36.5%;
+    transition: 1s ease-in-out;
     
   }
   .username {
@@ -92,6 +93,15 @@ body {
     .mailid{
         opacity: 1;
     }
+    .card:hover{
+      .avatar img{
+          border-radius: 5px;
+          width: 200px;
+          height: 200px;
+          margin-bottom: 0;
+          transition: 1s ease-in-out;
+      }
+    }
   }
   
 }
@@ -112,6 +122,15 @@ body {
     justify-items: center;
     .mailid{
         opacity: 1;
+    }
+    .card:hover{
+      .avatar img{
+          border-radius: 5px;
+          width: 150px;
+          height: 150px;
+          margin-bottom: 0;
+          transition: 1s ease-in-out;
+      }
     }
   }
   

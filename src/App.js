@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="mainApp">
       <Profile  state={state}/>
-      <Pagination setstate={setstate}/>
+      <Pagination setstate={setstate} state={state}/>
     </div>
   );
 }
