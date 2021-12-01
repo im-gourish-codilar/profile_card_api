@@ -27,6 +27,7 @@ body {
     border-radius: 50%;
     border: solid 1px;
     margin-bottom: 36.5%;
+    filter: grayscale(100%);
     transition: 1s ease-in-out;
     
   }
@@ -66,6 +67,7 @@ body {
         height: 250px;
         margin-bottom: 0;
         transition: 1s ease-in-out;
+        filter: grayscale(0%);
     }
     .mailid{
         opacity: 1;
@@ -85,7 +87,6 @@ body {
       background-color: yellow;
       border-radius: 10px;
     }
-    align-items: center;
     align-items: center;
     justify-items: center;
     margin-left: auto;
